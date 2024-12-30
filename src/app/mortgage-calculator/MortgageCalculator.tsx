@@ -35,13 +35,24 @@ export function MortgageCalculator() {
     const term = parseFloat(formData.loanTerm) * 12;
 
     const monthlyPayment = (principal * rate * Math.pow(1 + rate, term)) / (Math.pow(1 + rate, term) - 1);
-    const propertyTax = (price * (parseFloat(formData.propertyTax) / 100)) / 12;
-    const homeInsurance = parseFloat(formData.homeInsurance) / 12;
-    const pmi = parseFloat(formData.pmiInsurance) / 12;
-    const hoa = parseFloat(formData.hoaFee) / 12;
-    const other = parseFloat(formData.otherCosts) / 12;
+    let propertyTax = (price * (parseFloat(formData.propertyTax) / 100)) / 12;
+    let homeInsurance = parseFloat(formData.homeInsurance) / 12;
+    let pmi = parseFloat(formData.pmiInsurance) / 12;
+    let hoa = parseFloat(formData.hoaFee) / 12;
+    let other = parseFloat(formData.otherCosts) / 12;
+    let totalMonthly: number;
 
-    const totalMonthly = monthlyPayment + propertyTax + homeInsurance + pmi + hoa + other;
+    if (showAdditionalCosts) {
+      totalMonthly = monthlyPayment + propertyTax + homeInsurance + pmi + hoa + other;
+    } else {
+      totalMonthly = monthlyPayment;
+      propertyTax = 0;
+      homeInsurance = 0;
+      pmi = 0;
+      hoa = 0;
+      other = 0;
+    }
+
     const totalPayments = monthlyPayment * term;
     const totalInterest = totalPayments - principal;
 

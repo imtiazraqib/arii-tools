@@ -66,5 +66,5 @@ export function PieChart({ data }: PieChartProps) {
     });
   }, [data]);
 
-  return <canvas ref={canvasRef} width={300} height={300} className="w-full h-auto" />;
+  return <canvas ref={canvasRef} width={400} height={400} className="w-full h-auto" />;
 }

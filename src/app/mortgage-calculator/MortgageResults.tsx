@@ -1,8 +1,10 @@
 "use client";
 
-import { CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent } from "@/components/ui/chart";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { PieChart } from "./PieChart";
+// import { PieChart } from "./PieChart";
+import { Pie, PieChart } from "recharts";
 
 interface MortgageResultsProps {
   results: {
@@ -33,24 +35,46 @@ export function MortgageResults({ results, homePrice }: MortgageResultsProps) {
     {
       name: "Principal & Interest",
       value: results.monthlyPayment,
-      color: "hsl(307, 50%, 40%)",
+      color: "var(--color-pi)",
     },
     {
       name: "Property Taxes",
       value: results.propertyTax,
-      color: "hsl(252, 74%, 9%)",
+      color: "var(--color-pt)",
     },
     {
       name: "Home Insurance",
       value: results.homeInsurance,
-      color: "hsl(17, 95%, 74%)",
+      color: "var(--color-hi)",
     },
     {
       name: "Other Cost",
       value: results.otherCosts,
-      color: "hsl(347, 62%, 62%)",
+      color: "var(--color-oc)",
     },
   ];
+
+  const chartConfig = {
+    name: {
+      label: "name",
+    },
+    pi: {
+      label: "Principal & Interest",
+      color: "hsl(var(--chart-1))",
+    },
+    pt: {
+      label: "Property Taxes",
+      color: "hsl(var(--chart-2))",
+    },
+    hi: {
+      label: "Home Insurance",
+      color: "hsl(var(--chart-3))",
+    },
+    oc: {
+      label: "Other Cost",
+      color: "hsl(var(--chart-4))",
+    },
+  } satisfies ChartConfig;
 
   return (
     <CardContent className="p-6 space-y-6">
@@ -139,7 +163,23 @@ export function MortgageResults({ results, homePrice }: MortgageResultsProps) {
             </Table>
           </div>
           <div className="order-1 md:order-2">
-            <PieChart data={chartData} />
+            <Card className="flex flex-col">
+              <CardHeader className="items-center pb-0">
+                <CardTitle>Pie Chart - Cost</CardTitle>
+                <CardDescription>Total Monthly Cost Breakdown</CardDescription>
+              </CardHeader>
+              <CardContent className="flex-1 pb-0">
+                <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[300px]">
+                  <PieChart>
+                    <Pie data={chartData} dataKey="value" />
+                    <ChartLegend
+                      content={<ChartLegendContent nameKey="name" />}
+                      className="-translate-y-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
+                    />
+                  </PieChart>
+                </ChartContainer>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
