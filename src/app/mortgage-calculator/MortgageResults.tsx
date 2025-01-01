@@ -3,7 +3,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartConfig, ChartContainer, ChartLegend, ChartLegendContent } from "@/components/ui/chart";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-// import { PieChart } from "./PieChart";
 import { Pie, PieChart } from "recharts";
 
 interface MortgageResultsProps {
@@ -32,38 +31,21 @@ export function MortgageResults({ results, homePrice }: MortgageResultsProps) {
   };
 
   const chartData = [
-    {
-      name: "Principal & Interest",
-      value: results.monthlyPayment,
-      color: "var(--color-pi)",
-    },
-    {
-      name: "Property Taxes",
-      value: results.propertyTax,
-      color: "var(--color-pt)",
-    },
-    {
-      name: "Home Insurance",
-      value: results.homeInsurance,
-      color: "var(--color-hi)",
-    },
-    {
-      name: "Other Cost",
-      value: results.otherCosts,
-      color: "var(--color-oc)",
-    },
+    { costType: "pi", value: results.monthlyPayment, fill: "var(--color-pi)" },
+    { costType: "pt", value: results.propertyTax, fill: "var(--color-pt)" },
+    { costType: "hi", value: results.homeInsurance, fill: "var(--color-hi)" },
+    { costType: "oc", value: results.otherCosts, fill: "var(--color-oc)" },
   ];
-
   const chartConfig = {
-    name: {
-      label: "name",
+    value: {
+      label: "Cost",
     },
     pi: {
       label: "Principal & Interest",
       color: "hsl(var(--chart-1))",
     },
     pt: {
-      label: "Property Taxes",
+      label: "Property Tax",
       color: "hsl(var(--chart-2))",
     },
     hi: {
@@ -71,7 +53,7 @@ export function MortgageResults({ results, homePrice }: MortgageResultsProps) {
       color: "hsl(var(--chart-3))",
     },
     oc: {
-      label: "Other Cost",
+      label: "Other Costs",
       color: "hsl(var(--chart-4))",
     },
   } satisfies ChartConfig;
@@ -165,15 +147,15 @@ export function MortgageResults({ results, homePrice }: MortgageResultsProps) {
           <div className="order-1 md:order-2">
             <Card className="flex flex-col">
               <CardHeader className="items-center pb-0">
-                <CardTitle>Pie Chart - Cost</CardTitle>
-                <CardDescription>Total Monthly Cost Breakdown</CardDescription>
+                <CardTitle>Pie Chart - Cost Analysis</CardTitle>
+                <CardDescription>A graphical representation of your costs</CardDescription>
               </CardHeader>
               <CardContent className="flex-1 pb-0">
                 <ChartContainer config={chartConfig} className="mx-auto aspect-square max-h-[300px]">
                   <PieChart>
                     <Pie data={chartData} dataKey="value" />
                     <ChartLegend
-                      content={<ChartLegendContent nameKey="name" />}
+                      content={<ChartLegendContent nameKey="costType" />}
                       className="-translate-y-2 flex-wrap gap-2 [&>*]:basis-1/4 [&>*]:justify-center"
                     />
                   </PieChart>
