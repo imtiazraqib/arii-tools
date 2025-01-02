@@ -25,6 +25,7 @@ export function MortgageCalculator() {
     hoaFee: "0",
     otherCosts: "4000",
   });
+  // eslint-disable-next-line
   const [results, setResults] = useState<any>(null);
 
   const calculateMortgage = () => {
