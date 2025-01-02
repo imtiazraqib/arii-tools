@@ -2,7 +2,7 @@ import { MortgageCalculator } from "./MortgageCalculator";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mortgage Calculator | Arii Tools",
+  title: "Mortgage Calculator",
   description: "Mortgage calculator to estimate your monthly mortgage payments.",
 };
 

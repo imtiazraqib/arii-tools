@@ -8,8 +8,14 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Arii Tools",
+  title: {
+    template: "%s | Arii Tools",
+    default: "Arii Tools", // a default is required when creating a template
+  },
   description: "A collection of Arii tools built by Imtiaz Raqib",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
