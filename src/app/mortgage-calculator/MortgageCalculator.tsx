@@ -221,7 +221,7 @@ export function MortgageCalculator() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="hoaFee">HOA Fee</Label>
+                      <Label htmlFor="hoaFee">Condo Fees</Label>
                       <div className="relative">
                         <span className="absolute left-3 top-2.5">$</span>
                         <Input
