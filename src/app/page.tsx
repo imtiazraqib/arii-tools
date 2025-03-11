@@ -5,6 +5,7 @@ export default function Home() {
     { name: "Mortgage Calculator", path: "/mortgage-calculator" },
     { name: "Income Debt Ratio", path: "/income-debt-ratio" },
     { name: "Downpayment Savings Calculator", path: "/downpayment-savings-calculator" },
+    { name: "Home Reno ROI Calculator", path: "/home-reno-roi-calculator" },
   ];
 
   return (
