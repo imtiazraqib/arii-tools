@@ -58,7 +58,7 @@ export default function ResultsView({ result }: ResultsViewProps) {
         <h3 className="text-lg font-medium">Selected Renovations</h3>
 
         {result.selectedRenovations.map((item, index) => (
-          <div key={index} className="border rounded-md p-4">
+          <div key={index} className="border rounded-md p-4 bg-slate-100">
             <h4 className="font-medium mb-2">{item.renovation.name}</h4>
             <div className="grid gap-2 text-sm">
               <div className="flex justify-between">
@@ -90,31 +90,24 @@ export default function ResultsView({ result }: ResultsViewProps) {
         <h3 className="text-lg font-medium">Contact Information</h3>
 
         <div className="grid gap-3">
-          <div className="flex justify-between">
+          <div className="flex space-x-2">
             <span>Name:</span>
             <span>{result.userInfo.name}</span>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex space-x-2">
             <span>Email:</span>
             <span>{result.userInfo.email}</span>
           </div>
 
-          <div className="flex justify-between">
+          <div className="flex space-x-2">
             <span>Phone:</span>
             <span>{result.userInfo.phone}</span>
           </div>
-
-          {result.userInfo.message && (
-            <div>
-              <span className="font-medium">Message:</span>
-              <p className="mt-1 text-gray-600">{result.userInfo.message}</p>
-            </div>
-          )}
         </div>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-3 pt-4">
+      {/* <div className="flex flex-col sm:flex-row gap-3 pt-4">
         <Button variant="outline" className="flex-1">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Calculator
@@ -127,7 +120,7 @@ export default function ResultsView({ result }: ResultsViewProps) {
           <Share2 className="mr-2 h-4 w-4" />
           Share Results
         </Button>
-      </div>
+      </div> */}
     </div>
   );
 }
