@@ -71,7 +71,7 @@ export default function ResultsView({ result }: ResultsViewProps) {
               </div>
               <div className="flex justify-between">
                 <span>ROI Percentage:</span>
-                <span>{item.renovation.roi * 100}%</span>
+                <span>{(item.renovation.roi * 100).toFixed()}%</span>
               </div>
               <div className="flex justify-between font-medium">
                 <span>Total Cost:</span>

@@ -31,7 +31,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="absolute bottom-5 text-center text-gray-600">
-        <p>Version 2.4.2</p>
+        <p>Version 2.5.0</p>
       </footer>
     </div>
   );
