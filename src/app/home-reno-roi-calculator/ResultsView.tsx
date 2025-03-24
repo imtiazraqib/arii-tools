@@ -1,5 +1,5 @@
 // import { Button } from "@/components/ui/button";
-import type { CalculationResult } from "./page";
+import type { CalculationResult } from "./HomeRenoClient";
 // import { ArrowLeft, Download, Share2 } from "lucide-react";
 
 interface ResultsViewProps {
