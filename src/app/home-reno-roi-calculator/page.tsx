@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { Calculator, HomeIcon } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CalculateForm from "./CalculatorForm";
 import ResultsView from "./ResultsView";
@@ -32,7 +32,6 @@ export interface CalculationResult {
     name: string;
     email: string;
     phone: string;
-    message: string;
   };
 }
 

@@ -25,7 +25,7 @@ interface CalculateFormProps {
   locationId?: string;
 }
 
-export default function CalculateForm({ onCalculate, initialEmail = "", locationId = "" }: CalculateFormProps) {
+export default function CalculateForm({ onCalculate, initialEmail = "" }: CalculateFormProps) {
   const [homeValue, setHomeValue] = useState<number>(500000);
   const [cityAssessedValue, setCityAssessedValue] = useState<number>(500000);
   const [selectedRenovations, setSelectedRenovations] = useState<
@@ -37,7 +37,7 @@ export default function CalculateForm({ onCalculate, initialEmail = "", location
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>(initialEmail);
   const [phone, setPhone] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  // const [message, setMessage] = useState<string>("");
 
   const handleAddRenovation = () => {
     setSelectedRenovations([...selectedRenovations, { renovationIndex: 0, area: 500 }]);
@@ -89,7 +89,6 @@ export default function CalculateForm({ onCalculate, initialEmail = "", location
         name,
         email,
         phone,
-        message,
       },
     });
   };

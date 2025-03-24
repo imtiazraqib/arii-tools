@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import type { CalculationResult } from "./page";
-import { ArrowLeft, Download, Share2 } from "lucide-react";
+// import { ArrowLeft, Download, Share2 } from "lucide-react";
 
 interface ResultsViewProps {
   result: CalculationResult;
