@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Plus, X } from "lucide-react";
-import type { CalculationResult, RenovationOption, SelectedRenovation } from "./page";
+import type { CalculationResult, RenovationOption, SelectedRenovation } from "./HomeRenoClient";
 
 const RENOVATION_OPTIONS: RenovationOption[] = [
   { name: "Kitchen Remodel", costPerSqFt: 150, roi: 0.8 },
